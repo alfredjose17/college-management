@@ -3,8 +3,9 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import User
 
 TYPE_CHOICES = [
-   ('Teacher', 'Teacher'),
-   ('Student', 'Student'),
+   ('teacher', 'Teacher'),
+   ('student', 'Student'),
+   ('admin','admin'),
 ]
 
 class CustomUserCreationForm(UserCreationForm):
