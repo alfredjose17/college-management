@@ -5,7 +5,7 @@ from .models import User
 TYPE_CHOICES = [
    ('teacher', 'Teacher'),
    ('student', 'Student'),
-   ('admin','admin'),
+   ('admin','Admin'),
 ]
 
 class CustomUserCreationForm(UserCreationForm):
