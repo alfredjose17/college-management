@@ -24,4 +24,4 @@ class Assignment(models.Model):
     due_date = models.DateField(null= True)
     desc =models.TextField(null= True)
     subject =models.ForeignKey(Subject,on_delete=models.CASCADE )
-    class_id = models.ForeignKey(Classroom,on_delete= models.CASCADE)
+    clas = models.ForeignKey(Classroom,on_delete= models.CASCADE)
