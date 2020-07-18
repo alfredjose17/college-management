@@ -41,7 +41,7 @@ class Activitypoints(models.Model):
         ('elected','Elected student representatives')
 
     ]
-    activity = models.CharField(max_length=100,choices=ACTIVITY_CHOICES,default="N C C")
+    activity = models.CharField(max_length=100,choices=ACTIVITY_CHOICES,default="ncc")
     ACTIVITY_LEVEL=[
         ('notapplicable','Not Applicable'),
         ('collegeevents','I (College Events)'),
@@ -50,7 +50,7 @@ class Activitypoints(models.Model):
         ('nationalevents','IV (National Events)'),
         ('internationalevents','V (International Events)')
     ]
-    activitylevel=models.CharField(max_length=100,choices=ACTIVITY_LEVEL,default='Not Applicable')
+    activitylevel=models.CharField(max_length=100,choices=ACTIVITY_LEVEL,default='notapplicable')
     PRIZE_LEVEL=[
         ('notapplicable','Not Applicable'),
         ('participant','Participant'),
@@ -58,14 +58,14 @@ class Activitypoints(models.Model):
         ('second','Second'),
         ('third','Third')
     ]
-    prize=models.CharField(max_length=100,choices=PRIZE_LEVEL,default="Not Applicable")
+    prize=models.CharField(max_length=100,choices=PRIZE_LEVEL,default="notapplicable")
     INVOLVEMENT_TYPE=[
         ('notapplicable','Not Applicable'),
         ('corecoordinator','Core coordinator'),
         ('subcoordinator','Sub coordinator'),
         ('volunteer','Volunteer')
     ]
-    involvement=models.CharField(max_length=100,choices=INVOLVEMENT_TYPE,default="Not Applicable",blank=False)
+    involvement=models.CharField(max_length=100,choices=INVOLVEMENT_TYPE,default="notapplicable",blank=False)
     document=models.FileField(upload_to='uploads/')
     YEAROF=[
         ('firstyear','First Year'),
@@ -73,7 +73,7 @@ class Activitypoints(models.Model):
         ('thirdyear','Third Year'),
         ('fourthyear','Fourth Year')
     ]
-    year=models.CharField(max_length=100,choices=YEAROF,default="First Year")
+    year=models.CharField(max_length=100,choices=YEAROF,default="firstyear")
     notes=models.CharField(max_length=300,blank=True)
     points=models.IntegerField(default=0)
     student=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
