@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 # Create your models here.
-class Activitypoints(models.Model):
+class Activitypoint(models.Model):
     date=models.DateField(null=True)
     ACTIVITY_CHOICES = [
         ('ncc', 'N C C'),

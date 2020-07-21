@@ -20,8 +20,8 @@ class Internal(models.Model):
     class_room = models.ForeignKey(Classroom, on_delete=models.CASCADE)
 
 class Assignment(models.Model):
-    asn_name = models.CharField(max_length=200,null =True)
+    assignment_name = models.CharField(max_length=200,null =True)
     due_date = models.DateField(null= True)
-    desc =models.TextField(null= True)
-    subject =models.ForeignKey(Subject,on_delete=models.CASCADE )
+    description = models.TextField(null= True)
+    subject = models.ForeignKey(Subject,on_delete=models.CASCADE )
     class_room  = models.ForeignKey(Classroom,on_delete= models.CASCADE)
