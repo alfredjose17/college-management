@@ -1,0 +1,76 @@
+{{object_list}}
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<style>
+    #student {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #student td, #student th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #student tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #student tr:hover {background-color: #ddd;}
+    
+    #student th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+<body>
+
+
+
+<h1>Activity</h1>
+<table id="student">
+<tr>
+<th>STUDENT</th>
+<th>ACTIVITY</th>
+<th>ACTIVITY LEVEL</th>
+<th>PRIZE</th>
+<th>INVOLVEMENT LEVEL</th>
+<th>DOCUMENT</th>
+<th>YEAR</th>
+<th>NOTES</th>
+<th>DATE ADDED</th>
+<th>POINTS</th>
+<th>STATUS</th>
+<th>UPDATE</th>
+</tr>
+{%for instance in object_list %}
+<tr>
+<td>{{instance.student.first_name}}</td>
+<td>{{instance.get_activity_display}}</td>
+<td>{{instance.get_activitylevel_display}}</td>
+<td>{{instance.get_prize_display}}</td>
+<td>{{instance.get_involvement_display}}</td>
+<td><a href="{{instance.document.url}}" target="_blank">Download File</a></td>
+<td>{{instance.get_year_display}}</td>
+<td>{{instance.notes}}</td>
+<td>{{instance.date}}</td>
+<form action="{% url 'update_points' instance.id %}" method="POST">{%csrf_token%}
+<td><input type="number" name="points"></td>
+<td><select name="status">
+    <option value="approved">APPROVE</option>
+    <option value="rejected">REJECT</option>
+    <option value="pending">PENDING</option>
+</select></td>
+<td><input type="submit" value="UPDATE"></td>
+</form>
+</tr>
+{% endfor %}
+</table>
+
+
+</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>

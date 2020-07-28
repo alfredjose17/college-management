@@ -1,0 +1,63 @@
+{{object}}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#student {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#student td, #student th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#student tr:nth-child(even){background-color: #f2f2f2;}
+
+#student tr:hover {background-color: #ddd;}
+
+#student th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+</head>
+<h1><legend>KTU ACTIVITY POINTS</legend></h1>
+<p><a href="{% url 'home' %}">Claim Activity Points</a></p>
+<body>
+
+<table id="student">
+  <tr>
+    <th>ACTIVITY</th>
+    <th>POINTS</th>
+    <th>DOCUMENT</th>
+    <th>STATUS</th>
+    <th>DATE ADDED</th>
+    <th>COMMENTS</th>
+    <th>ACTION</th>
+  </tr>
+  {% for instance in object %}
+  <tr>
+    <td>{{instance.get_activity_display}}</td>
+    <td>{{instance.points}}</td>
+    <td><a href="{{instance.document.url}}"  target="_blank">View</a></td></td>
+    <td>{{instance.status}}</td>
+    <td>{{instance.date}}</td>
+    <td>{{instance.notes}}</td>
+    <td>
+        <form method="POST" action="{% url 'deletepoints' instance.id %}">
+            {%csrf_token%}
+          <button type="submit">Delete</button>  
+        </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </table>
+  </body>
+  </html>
