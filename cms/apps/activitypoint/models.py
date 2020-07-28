@@ -1,8 +1,9 @@
 from django.db import models
 from django.conf import settings
+from datetime import datetime
 # Create your models here.
 class Activitypoint(models.Model):
-    date=models.DateField(null=True)
+    date=models.DateTimeField(default=datetime.now)
     ACTIVITY_CHOICES = [
         ('ncc', 'N C C'),
         ('nss', 'N S S'),
@@ -76,4 +77,14 @@ class Activitypoint(models.Model):
     year=models.CharField(max_length=100,choices=YEAROF,default="firstyear")
     notes=models.CharField(max_length=300,blank=True)
     points=models.IntegerField(default=0)
+    STATUS_CHOICE=[
+        ('approved','APPROVE'),
+        ('rejected','REJECT',),
+        ('pending','PENDING')
+    ]
+    status=models.CharField(max_length=100,choices=STATUS_CHOICE,default='pending')
     student=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.activity
