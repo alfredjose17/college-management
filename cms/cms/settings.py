@@ -28,6 +28,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'authentication.User'
+#email is sent to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#details to be filled in production to send emails to users
+#EMAIL_HOST = ''
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = ''
 
 # Application definition
 
@@ -131,6 +140,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+#url to redirect to after successful login and logout
+#LOGIN_REDIRECT_URL = ''
+#LOGOUT_REDIRECT_URL = ''
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATIC_URL = '/static/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'cms/static')]
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
