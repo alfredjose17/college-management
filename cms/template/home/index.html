@@ -46,24 +46,51 @@
       <div class="container-fluid">
         <div class="d-flex align-items-center">
           <div class="site-logo mr-auto w-25"><a href="https://www.mec.ac.in/">Model Engineering College</a></div>
-
-          <div class="mx-auto text-center">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
-                <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#courses-section" class="nav-link">Attendance</a></li>
-                <li><a href="#programs-section" class="nav-link">Sessional Marks</a></li>
-                <li><a href="#teachers-section" class="nav-link">Activity Points</a></li>
-                
-              </ul>
-            </nav>
-          </div>
+          {% if type == 'teacher' %}
+            <div class="mx-auto text-center">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                  <li><a href="#home-section" class="nav-link">Home</a></li>
+                  <li><a href="/attendance/tattendance/{{subid}}/{{clasid}}/" class="nav-link">Attendance</a></li>
+                  <li><a href="/internal/tmarks/{{subid}}/{{clasid}}/" class="nav-link">Sessional Marks</a></li>
+                  <li><a href="#teachers-section" class="nav-link">Activity Points</a></li>
+                  
+                </ul>
+              </nav>
+            </div>
+          {% else %}
+            <div class="mx-auto text-center">
+              <nav class="site-navigation position-relative text-right" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
+                  <li><a href="#home-section" class="nav-link">Home</a></li>
+                  <li><a href="/attendance/sattendance/" class="nav-link">Attendance</a></li>
+                  <li><a href="/internal/sview/" class="nav-link">Sessional Marks</a></li>
+                  <li><a href="#teachers-section" class="nav-link">Activity Points</a></li>
+                  
+                </ul>
+              </nav>
+            </div>
+          {% endif %}
 
           <div class="ml-auto w-25">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                <li><a href="profile" class="nav-link">View Profile</a></li>
-                <li class="cta"><a href="#contact-section" class="nav-link"><span>Logout</span></a></li>
+                {% if type == 'teacher' %}
+                  <div class="cms-dropdown nav-link cta">
+                    <button class="cms-dropbtn"><span>{% if selected %} {{ selected }} {% else %} Classes {% endif %}</span></button>
+                    <div class="cms-dropdown-content" style="text-align: center;">
+                      <form action = "#" method="POST">
+                        {% csrf_token %}
+                        {% for class in classes %}
+                          <input name="class" type="submit" value="{{class.class_room}}"></input>
+                        {% endfor %}
+                      </form>
+                    </div>
+                  </div> 
+                {% else %}
+                  <li><a href="profile" class="nav-link">View Profile</a></li>
+                {% endif %}
+                <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
               </ul>
             </nav>
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
