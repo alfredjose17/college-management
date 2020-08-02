@@ -1,0 +1,16 @@
+
+<h1> classes:</h1>
+<table >
+    <tr>
+      <th>CLASS</th>
+      <th>SUBJECT</th>
+      <th>ENTER MARKS</th>
+    </tr>
+    {% for clas in tclass %}
+    <tr>
+        <td>{{clas.class_room.name}}</td>
+        <td>{{clas.subject.subject_code}}</td>
+        <td><a href="tmarks/{{clas.subject.id}}/{{clas.class_room.id}}/">ENTER MARKS</a></td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,78 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Marks</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static '/internal/images/icons/favicon.ico'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <h1><legend>MARKS</legend></h1>     
+<!--<h2>Name:{{student.first_name}} {{student.last_name}}</h2>
+<h2> Roll No : {{student.rollno}}</h2>
+<h2>Class: {{student.class_name.name}}</h2>-->
+        <p id="atag"><a href="assignview/">Assignments</a></p>
+      <div class="table100">
+<table>
+    <thead> 
+        <tr class="table100-head">
+            <th class="col">Subject</th>
+            <th class="col">Subject Code</th>
+            <th class="col">Internal 1</th>
+            <th class="col">Internal 2</th>
+            <th class="col">Assignment 1</th>
+            <th class="col">Assignment 2</th>
+            <th class="col">Total</th>
+        </tr>
+    </thead>
+   
+    {% for m in mark %}
+    <tbody>
+        <tr>
+            <td class="col">{{m.subject.subject_name}}</td>
+            <td class="col">{{m.subject.subject_code}}</td>
+            <td class="col">{{m.internal_1}}</td>
+            <td class="col">{{m.internal_2}}</td>
+            <td class="col">{{m.assignment_1}}</td>
+            <td class="col">{{m.assignment_2}}</td>
+            <td class="col">{{m.total}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+</div>
+</div>
+</div>
+<!--===============================================================================================-->	
+<script src="{% static '/internal/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/internal/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static '/internal/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/internal/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'internal/js/main.js'%}"></script>
+
+  </body>
+  </html>
