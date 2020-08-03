@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
-
+    #path('tclass/',views.tclass),
+    path('tmarks/<int:subid>/<int:clasid>/',views.entermark),
+    path('sview/',views.viewmarks),
+    path('tmarks/<int:subid>/<int:clasid>/ascreate/',views.tassignment),
+    path('sview/assignview/',views.studassignview),
+    path('sview/assignview/studassignsub/<int:aid>/',views.studassignsubmit),
+    path('tmarks/<int:subid>/<int:clasid>/tassignview/',views.tassignview),
 ]
