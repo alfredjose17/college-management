@@ -1,0 +1,68 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Assignments</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static '/internal/images/icons/favicon.ico'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static '/internal/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+<table>
+    <thead>
+    <tr class="table100-head">
+        <th class="col">Assignment Name</th>
+        <th  class="col">Roll No</th>
+        <th  class="col">Name</th>
+        <th  class="col">Submitted Date</th>
+        <th  class="col">Work</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for s in studas %}   
+        <tr >
+        <td class="col">{{s.assignment.assignment_name}}</td>
+        <td class="col">{{s.student.rollno}}</td>
+        <td class="col">{{s.student.first_name}} {{s.student.last_name}}</td>
+        <td class="col">{{s.submitted_date }}</td>
+        <td class="col"><a href="{{s.answer.url}}" target="_blank">view</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!--===============================================================================================-->	
+<script src="{% static '/internal/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/internal/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static '/internal/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/internal/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'internal/js/main.js'%}"></script>
+
+  </body>
+  </html>
