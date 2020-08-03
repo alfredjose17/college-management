@@ -32,7 +32,7 @@ def enterattendance(request,subid,clasid):
 #student view attendance
 def viewattendance(request):
     context={
-        'attendance':Attendance.objects.filter(student__rollno="30"),
-        'student':User.objects.get(rollno="30")
+        'attendance':Attendance.objects.filter(student__rollno=request.user.rollno),
+        'student':User.objects.get(rollno=request.user.rollno)
     }    
     return render(request,'attendance/attendance_view.html',context)
