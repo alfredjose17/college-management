@@ -1,76 +1,94 @@
-{{object_list}}
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static '/activitypoint/images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/css/main.css'%}">
+<!--===============================================================================================-->
 </head>
-<style>
-    #student {
-      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    
-    #student td, #student th {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    
-    #student tr:nth-child(even){background-color: #f2f2f2;}
-    
-    #student tr:hover {background-color: #ddd;}
-    
-    #student th {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: left;
-      background-color: #4CAF50;
-      color: white;
-    }
-    </style>
 <body>
 
-
-
-<h1>Activity</h1>
-<table id="student">
-<tr>
-<th>STUDENT</th>
-<th>ACTIVITY</th>
-<th>ACTIVITY LEVEL</th>
-<th>PRIZE</th>
-<th>INVOLVEMENT LEVEL</th>
-<th>DOCUMENT</th>
-<th>YEAR</th>
-<th>NOTES</th>
-<th>DATE ADDED</th>
-<th>POINTS</th>
-<th>STATUS</th>
-<th>UPDATE</th>
+	
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <h1><legend>Activity Points of Class {{class}}</legend></h1>
+      <p>Teacher: {{name}}</p>
+        <p id="pdf"><a href="http://www.bmce.ac.in/pdf/B.TechActivityPoints.pdf" target="_blank">PDF for Activity Points</a></p>
+      <br>
+    
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+<th class="col">STUDENT</th>
+<th class="col">ACTIVITY</th>
+<th class="col">ACTIVITY LEVEL</th>
+<th class="col">PRIZE</th>
+<th class="col">INVOLVEMENT LEVEL</th>
+<th class="col">DOCUMENT</th>
+<th class="col">YEAR</th>
+<th class="col">NOTES</th>
+<th class="col">DATE ADDED</th>
+<th class="col">POINTS</th>
+<th class="col">STATUS</th>
+<th class="col">UPDATE</th>
 </tr>
+          </thead>
+<tbody>
 {%for instance in object_list %}
 <tr>
-<td>{{instance.student.first_name}}</td>
-<td>{{instance.get_activity_display}}</td>
-<td>{{instance.get_activitylevel_display}}</td>
-<td>{{instance.get_prize_display}}</td>
-<td>{{instance.get_involvement_display}}</td>
-<td><a href="{{instance.document.url}}" target="_blank">Download File</a></td>
-<td>{{instance.get_year_display}}</td>
-<td>{{instance.notes}}</td>
-<td>{{instance.date}}</td>
+<td class="col">{{instance.student.first_name}} {{instance.student.last_name}}</td>
+<td class="col">{{instance.get_activity_display}}</td>
+<td class="col">{{instance.get_activitylevel_display}}</td>
+<td class="col">{{instance.get_prize_display}}</td>
+<td class="col">{{instance.get_involvement_display}}</td>
+<td class="col"><button><a href="{{instance.document.url}}" target="_blank">Download</a></button></td>
+<td class="col">{{instance.get_year_display}}</td>
+<td class="col">{{instance.notes}}</td>
+<td class="col">{{instance.date}}</td>
 <form action="{% url 'update_points' instance.id %}" method="POST">{%csrf_token%}
-<td><input type="number" name="points"></td>
-<td><select name="status">
+<td class="col"><input type="number" name="points"></td>
+<td class="col"><select name="status">
     <option value="approved">APPROVE</option>
     <option value="rejected">REJECT</option>
     <option value="pending">PENDING</option>
 </select></td>
-<td><input type="submit" value="UPDATE"></td>
+<td class="col4"><input type="submit" value="UPDATE"></td>
 </form>
 </tr>
 {% endfor %}
+</tbody>
 </table>
+</div>
 
+			</div>
+		</div>
+	</div>
 
+<!--===============================================================================================-->	
+<script src="{% static '/activitypoint/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static '/activitypoint/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/js/main.js'%}"></script>
 </body>
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script></html>
+</html>
