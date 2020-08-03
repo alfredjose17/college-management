@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
 def enterattendance(request,subid,clasid):
     if request.method=="GET":        
-        attendance= Attendance.objects.filter(subject__id=subid,student__class_name__name=clasid)
+        attendance= Attendance.objects.filter(subject__id=subid,student__class_name=clasid)
         context={
             'attendance': attendance,
             'subject': Subject.objects.get(id=subid), 
