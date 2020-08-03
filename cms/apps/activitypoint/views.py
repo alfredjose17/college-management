@@ -19,13 +19,17 @@ def student_activity_view(request):
     context={
         'form':form
     }
-    return render(request,'home.html',context)
+    return render(request,'activitypoint/home.html',context)
 def activity_list_view(request):
-    queryset=Activitypoint.objects.filter(status="pending")
+    c=request.user.class_name
+    n=request.user
+    queryset=Activitypoint.objects.filter(student__class_name__name=request.user.class_name,status="pending")
     context={
-        'object_list':queryset
+        'object_list':queryset,
+        'class':c,
+        'name':n
     }
-    return render(request,'view.html',context)
+    return render(request,'activitypoint/view.html',context)
 def update_points(request,pk):
     if request.method=="POST":
         if request.POST['points']=="":
@@ -38,11 +42,16 @@ def update_points(request,pk):
             updation=Activitypoint.objects.filter(id=pk).update(points=points,status=status)
             return redirect('view')
 def student_home_view(request):
-    queryset=Activitypoint.objects.filter(student__first_name="rrr")    
+    n=request.user
+    c=request.user.class_name
+    queryset=Activitypoint.objects.filter(student=request.user)    
     context={
-        'object':queryset
+        'object':queryset,
+        'name':n,
+        'class':c
+
     }
-    return render(request,'studenthome.html',context)
+    return render(request,'activitypoint/studenthome.html',context)
 def delete_point(request,pk):
     if request.method=="POST":
         dele=Activitypoint.objects.get(id=pk)

@@ -25,3 +25,4 @@ urlpatterns = [
     path('deletepoints/<int:pk>/',views.delete_point,name="deletepoints"),
 
 ]
+

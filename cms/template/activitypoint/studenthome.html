@@ -1,56 +1,59 @@
-{{object}}
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html  lang="en">
 <head>
-<style>
-#student {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#student td, #student th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#student tr:nth-child(even){background-color: #f2f2f2;}
-
-#student tr:hover {background-color: #ddd;}
-
-#student th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
-
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static '/activitypoint/images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/css/main.css'%}">
+<!--===============================================================================================-->
 </head>
-<h1><legend>KTU ACTIVITY POINTS</legend></h1>
-<p><a href="{% url 'home' %}">Claim Activity Points</a></p>
-<body>
 
-<table id="student">
-  <tr>
-    <th>ACTIVITY</th>
-    <th>POINTS</th>
-    <th>DOCUMENT</th>
-    <th>STATUS</th>
-    <th>DATE ADDED</th>
-    <th>COMMENTS</th>
-    <th>ACTION</th>
+<body>
+  <div class="limiter">
+  
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <h1><legend>KTU ACTIVITY POINTS-MEC</legend></h1>
+        <p>{{name}}</p>
+        <p>{{class}}</p>
+        <p id="atag"><a href="{% url 'home' %}">Claim Activity Points</a></p>
+        <div class="table100">
+   
+          <table>
+            <thead>
+              <tr class="table100-head">
+    <th class="col">ACTIVITY</th>
+    <th  class="col">POINTS</th>
+    <th  class="col">DOCUMENT</th>
+    <th  class="col">STATUS</th>
+    <th  class="col">DATE ADDED</th>
+    <th  class="col">NOTES</th>
+    <th  class="col">ACTION</th>
   </tr>
+  <tbody>
   {% for instance in object %}
   <tr>
-    <td>{{instance.get_activity_display}}</td>
-    <td>{{instance.points}}</td>
-    <td><a href="{{instance.document.url}}"  target="_blank">View</a></td></td>
-    <td>{{instance.status}}</td>
-    <td>{{instance.date}}</td>
-    <td>{{instance.notes}}</td>
-    <td>
+    <td  class="col">{{instance.get_activity_display}}</td>
+    <td  class="col">{{instance.points}}</td>
+    <td  class="col"><a href="{{instance.document.url}}"  target="_blank">View</a></td>
+    <td  class="col">{{instance.status}}</td>
+    <td  class="col">{{instance.date}}</td>
+    <td  class="col">{{instance.notes}}</td>
+    <td  class="col">
         <form method="POST" action="{% url 'deletepoints' instance.id %}">
             {%csrf_token%}
           <button type="submit">Delete</button>  
@@ -58,6 +61,21 @@
     </td>
   </tr>
   {% endfor %}
+  </tbody>
   </table>
+</div>
+</div>
+</div>
+</div>
+<!--===============================================================================================-->	
+<script src="{% static '/activitypoint/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static '/activitypoint/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static '/activitypoint/js/main.js'%}"></script>
+
   </body>
   </html>
