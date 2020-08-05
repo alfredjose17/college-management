@@ -23,7 +23,7 @@
 <!--===============================================================================================-->
 <body>
   <div class="limiter">
-    <div class="container-table100">
+    <div class="container-table100" style="background-image: url('/static/attendance/images/bg.jpeg');"  >
       <div class="wrap-table100">
         <h1><legend>SUBJECT:{{subject.subject_name}}</legend></h1>
         <form action="" method="post">
@@ -31,16 +31,16 @@
           <table >
             <thead>
               <tr class="table100-head">
-                <th class="col">Roll NO</th>
-                <th class="col">NAME</th>
-                <th class="col">STATUS</th>
+                <th class="col1">Roll NO</th>
+                <th class="col1">Name</th>
+                <th class="col1">Status</th>
               </tr>    
             </thead>
             <tbody>
               {% for a in attendance %}      
               <tr> 
-                <td class="col">{{a.student.rollno}}</td>
-                <td class="col">{{a.student.first_name}} {{a.student.last_name}}</td> 
+                <td class="col1">{{a.student.rollno}}</td>
+                <td class="col1">{{a.student.first_name}} {{a.student.last_name}}</td> 
                 <td class="col">
                   <select name = "status">
                     <option value = True selected>Present</option>

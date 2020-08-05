@@ -21,7 +21,7 @@
 
 body, html {
 	height: 100%;
-	font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 /* ------------------------------------ */
@@ -42,7 +42,8 @@ a:hover {
 }
 
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
+h1,h2,h3,h4,h5,h6 {margin: 0px;
+color: white;}
 
 p {margin: 0px;}
 
@@ -104,6 +105,8 @@ iframe {
 }
 
 .container-table100 {
+  width: 100%;
+  min-height: 100vh;
   width: 100%;
   min-height: 100vh;
   background: #c850c0;
@@ -226,6 +229,13 @@ tbody tr:hover {
 .col{
   width: auto;
   text-align: center;
+  cursor: auto;
+}
+
+.col1{
+  width: auto;
+  text-align: center;
+  cursor: default;
 }
 
 @media screen and (max-width: 992px) {

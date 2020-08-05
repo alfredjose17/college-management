@@ -24,14 +24,14 @@
 </head>
 <body>
   <div class="limiter">
-    <div class="container-table100">
+    <div class="container-table100" style="background-image: url('/static/attendance/images/bg.jpeg');">
       <div class="wrap-table100">
         <h1><legend>Attendance</legend></h1>     
       <div class="table100">
     <table>
     <thead>
         <tr class="table100-head">
-            <th class="col">subject</th>
+            <th class="col">Subject</th>
             <th class="col">Subject Code</th>
             <th class="col">Present</th>
             <th class="col">Total</th>
@@ -42,11 +42,11 @@
     {% for a in attendance %}
     <tbody>
       <tr>
-        <td class="col">{{a.subject.subject_name}}</td>
-        <td class="col">{{a.subject.subject_code}}</td>
-        <td class="col">{{a.presentcount}}</td>
-        <td class="col">{{a.totcount}}</td>
-        <td class="col">{{a.total}}</td>
+        <td class="col1">{{a.subject.subject_name}}</td>
+        <td class="col1">{{a.subject.subject_code}}</td>
+        <td class="col1">{{a.presentcount}}</td>
+        <td class="col1">{{a.totcount}}</td>
+        <td class="col1">{{a.total}}</td>
       </tr>
     </tbody>
     {% endfor %}

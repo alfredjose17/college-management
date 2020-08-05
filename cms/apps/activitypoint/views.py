@@ -13,7 +13,7 @@ def student_activity_view(request):
             post = form.save(commit=False)
             post.student = request.user
             post.save()
-            return redirect('home')
+            return redirect('studenthome')
     else:
         form=ActivityForm()
     context={

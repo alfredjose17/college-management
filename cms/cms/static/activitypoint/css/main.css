@@ -73,7 +73,7 @@ textarea:focus, input:focus {
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+  background: transparent; 
 }
 
 button:hover {
@@ -226,6 +226,7 @@ tbody tr:hover {
 .col{
   width: auto;
   text-align: center;
+  cursor: default;
 }
 
 @media screen and (max-width: 992px) {
