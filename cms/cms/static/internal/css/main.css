@@ -42,7 +42,8 @@ a:hover {
 }
 
 /* ------------------------------------ */
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
+h1,h2,h3,h4,h5,h6 {margin: 0px;
+color: white;}
 
 p {margin: 0px;}
 
@@ -142,11 +143,14 @@ table * {
 }
 table td, table th {
   padding-left: 8px;
+
 }
 table thead tr {
   height: 60px;
   background: #36304a;
 }
+
+
 table tbody tr {
   height: 50px;
 }
@@ -196,7 +200,6 @@ tbody tr:hover {
 .column1 {
   width: 160px;
   padding-left: 40px;
-  text-align: center;
 }
 
 .column2 {
@@ -206,6 +209,8 @@ tbody tr:hover {
 .column3 {
   width: 245px;
   text-align: center;
+  align-items: center;
+  align-content: center;
 }
 
 .column4 {
@@ -226,6 +231,9 @@ tbody tr:hover {
 .col{
   width: auto;
   text-align: center;
+  align-content: center;
+  align-items: center;
+  cursor: default;
 }
 
 @media screen and (max-width: 992px) {

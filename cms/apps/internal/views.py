@@ -14,7 +14,7 @@ def entermark(request,subid,clasid):
         mark= Mark.objects.filter(subject__id=subid,student__class_name=clasid)
         context={
             'mark': mark,
-            'class':Classroom.objects.get(id=clasid).name,
+            'class':Classroom.objects.get(id=clasid),
             'subject':Subject.objects.get(id=subid),
         }
         return render(request,'internal/marks_enter.html',context)
