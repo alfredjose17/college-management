@@ -20,6 +20,7 @@ def home(request):
                 'lname' : request.user.last_name,
                 'roll' : request.user.rollno,
             }
+
         else:
             context = {
                 'classes' : Internal.objects.filter(teacher = request.user),
@@ -40,6 +41,7 @@ def home(request):
             'classname' : request.user.class_name,
             'roll' : request.user.rollno,
         }
+
     return render(request, 'home/index.html', context)
     
 
