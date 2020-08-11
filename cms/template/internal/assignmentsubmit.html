@@ -13,22 +13,18 @@
           <br>
           <br>
           <br>
-          
-<h2>SUBJECT:{{studas.assignment.subject.subject_name}}</h2>
+          <p><a href="javascript:history.back()"><- Back</a></p><br>      
+<h2 style="text-align: center;">{{studas.assignment.assignment_name}}</h2>
 <br>
-<h2>ASSIGNMENT:{{studas.assignment.assignment_name}}</h2>
-<br>
-<p>DESCRIPTION:{{studas.assignment.description }}</p>
-
-<p>DUE DATE: {{studas.assignment.due_date}}</p>
-
-<p>STATUS:{{studas.status}}</p>
-<p>QUESTION:<a href="{{studas.assignment.question.url}}" target="_blank">view question</a></p>
+<p>Description: {{studas.assignment.description }}</p>
+<p>Due Date: {{studas.assignment.due_date}}</p>
+<p>Status: {{studas.status}}</p>
+<p><a href="{{studas.assignment.question.url}}" target="_blank">View Question</a></p>
 <form action="" method="POST" enctype="multipart/form-data">
 {% csrf_token %}
     {{ form|crispy }}
     <br>
-    <button class="btn btn-success"type = "submit">save</button>
+    <button class="btn btn-success"type = "submit" style="margin: 25px auto auto auto; display: block;"">Save</button>
  </form>
 </div>
 </div>
