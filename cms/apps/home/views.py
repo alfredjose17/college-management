@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from apps.internal.models import Internal
+from django.http import HttpResponse
 
 # Create your views here.
     
@@ -19,9 +20,13 @@ def home(request):
                 'lname' : request.user.last_name,
                 'roll' : request.user.rollno,
             }
+
         else:
             context = {
                 'classes' : Internal.objects.filter(teacher = request.user),
+                'selected' : get_object_or_404(Internal, class_room__id = 1).class_room,
+                'clasid' : get_object_or_404(Internal, class_room__id = 1).class_room.id,
+                'subid' : get_object_or_404(Internal, class_room__id = 1).subject.id,
                 'type' : request.user.type,
                 'classname' : request.user.class_name,
                 'fname' : request.user.first_name,
@@ -36,7 +41,7 @@ def home(request):
             'classname' : request.user.class_name,
             'roll' : request.user.rollno,
         }
-
+    print(context)
     return render(request, 'home/index.html', context)
     
 

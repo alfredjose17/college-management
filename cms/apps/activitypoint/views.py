@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render,redirect
 from .forms import ActivityForm
 from .models import Activitypoint
+from apps.authentication.models import User,Classroom,Subject
 
 # Create your views here.
 def student_activity_view(request):
@@ -20,14 +21,17 @@ def student_activity_view(request):
         'form':form
     }
     return render(request,'activitypoint/home.html',context)
-def activity_list_view(request):
+def activity_list_view(request,subid,clasid):
     c=request.user.class_name
     n=request.user
     queryset=Activitypoint.objects.filter(student__class_name__name=request.user.class_name,status="pending")
     context={
         'object_list':queryset,
         'class':c,
-        'name':n
+        'name':n,
+        'class':Classroom.objects.get(id=clasid),
+        'subject':Subject.objects.get(id=subid),
+        'classname' : request.user.class_name,
     }
     return render(request,'activitypoint/view.html',context)
 def update_points(request,pk):

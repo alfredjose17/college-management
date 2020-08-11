@@ -19,9 +19,9 @@ from . import views
 
 urlpatterns = [
     path('',views.student_activity_view,name='home'),
-    path('view',views.activity_list_view,name='view'),
+    path('view/<int:subid>/<int:clasid>/',views.activity_list_view,name='view'),
     path('update_points/<int:pk>/',views.update_points,name="update_points"),
-    path('studenthome',views.student_home_view,name="studenthome"),
+    path('studenthome/',views.student_home_view,name="studenthome"),
     path('deletepoints/<int:pk>/',views.delete_point,name="deletepoints"),
 
 ]

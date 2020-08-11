@@ -10,6 +10,7 @@ def enterattendance(request,subid,clasid):
             'attendance': attendance,
             'subject': Subject.objects.get(id=subid), 
             'class':Classroom.objects.get(id=clasid),
+            'classname' : request.user.class_name,
         }
         return render(request,'attendance/attendance_enter.html',context)
     if request.method=="POST":

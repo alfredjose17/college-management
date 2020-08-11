@@ -16,6 +16,7 @@ def entermark(request,subid,clasid):
             'mark': mark,
             'class':Classroom.objects.get(id=clasid),
             'subject':Subject.objects.get(id=subid),
+            'classname' : request.user.class_name,
         }
         return render(request,'internal/marks_enter.html',context)
     if request.method=="POST":
@@ -91,5 +92,8 @@ def tassignview(request,subid,clasid):
     studassignment= StudentAssignment.objects.filter(assignment__subject=subid,assignment__class_room=clasid,status="Submitted")
     context ={
         'studas':studassignment,
-    }
+        'class':Classroom.objects.get(id=clasid),
+        'subject':Subject.objects.get(id=subid),
+        'classname' : request.user.class_name,
+}
     return render(request,'internal/tassignview.html',context)

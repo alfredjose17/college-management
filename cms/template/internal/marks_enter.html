@@ -54,7 +54,10 @@
                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                   <li><a href="/home#home-section" class="nav-link">Home</a></li>
                   <li><a href="/attendance/tattendance/{{subject.id}}/{{class.id}}/" class="nav-link">Attendance</a></li>
-                  <li><a href="/internal/tmarks/{{subject.id}}/{{class.id}}/" class="nav-link">Sessional Marks</a></li>
+                  <li><a href="#" class="nav-link">Sessional Marks</a></li>
+                  {% if classname %}
+                  <li><a href="/activitypoint/view/{{subject.id}}/{{class.id}}/" class="nav-link">Activity Points</a></li>
+                  {% endif %}
                 </ul>
               </nav>
             </div>
@@ -71,7 +74,7 @@
     <div class="container-table100" style="background-image: url('/static/attendance/images/bg5.jpg');">
       <div class="wrap-table100">
 <!--<h1>CLASS:{{class}}</h1>-->
-<h1><legend>Subject: {{subject.subject_name}}</legend></h1>
+<h1><legend>{{subject.subject_name}}</legend></h1>
 <p id="atag"><a href="ascreate/">New Assignment</a></p>
 <p id="atag" style="margin-bottom: 25px;"><a href="tassignview/">View Assignment</a></p>
 <form action="" method="post">
@@ -106,7 +109,7 @@
     </tbody>
   </table>
   <br>
-<input type="submit"  class="btn btn-success" value="Submit"></td>
+<button type="submit"  class="btn btn-success" value="Submit" style="margin: 30px auto auto auto; display: block;">Submit</button></td>
 </div>
 </form>
 </div>
