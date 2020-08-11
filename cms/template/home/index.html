@@ -54,7 +54,7 @@
                   <li><a href="/attendance/tattendance/{{subid}}/{{clasid}}/" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/tmarks/{{subid}}/{{clasid}}/" class="nav-link">Sessional Marks</a></li>
                   {% if classname %}
-                  <li><a href="/activitypoint/view" class="nav-link">Activity Points</a></li>
+                  <li><a href="/activitypoint/view/{{subid}}/{{clasid}}/" class="nav-link">Activity Points</a></li>
                   {% endif %}
                 </ul>
               </nav>
@@ -66,7 +66,7 @@
                   <li><a href="#home-section" class="nav-link">Home</a></li>
                   <li><a href="/attendance/sattendance/" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/sview/" class="nav-link">Sessional Marks</a></li>
-                  <li><a href="/activitypoint/studenthome" class="nav-link">Activity Points</a></li>
+                  <li><a href="/activitypoint/studenthome/" class="nav-link">Activity Points</a></li>
                   
                 </ul>
               </nav>
@@ -163,7 +163,7 @@
             
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
-                            <a href="#"><img src="{% static 'home/images/img_4.jpg' %}" alt="Image" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'home/images/img_1.jpg' %}" alt="Image" class="img-fluid"></a>
                           </figure>
                           <div class="course-inner-text py-4 px-4">
                             <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
@@ -178,7 +178,7 @@
             
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
-                            <a href="#"><img src="{% static 'home/images/img_5.jpg' %}" alt="Image" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'home/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>
                           </figure>
                           <div class="course-inner-text py-4 px-4">
                             <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
@@ -193,7 +193,7 @@
             
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
-                            <a href="#"><img src="{% static 'home/images/img_6.jpg' %}" alt="Image" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'home/images/img_3.jpg' %}" alt="Image" class="img-fluid"></a>
                           </figure>
                           <div class="course-inner-text py-4 px-4">
                             <div class="meta"><span class="icon-clock-o"></span>4 Lessons / 12 week</div>
@@ -238,6 +238,8 @@
             <h2 class="section-title">{{ fname }} {{ lname }}</h2>
             {% if type == 'student' %}
             <p>Class: {{ classname }} <br> {{ roll }}</p>
+            {% else %}
+            <p>Teacher</p>
             {% endif %}
           </div>
         </div>

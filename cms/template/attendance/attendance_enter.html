@@ -52,8 +52,11 @@
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0">
                   <li><a href="/home#home-section" class="nav-link">Home</a></li>
-                  <li><a href="/attendance/tattendance/{{subject.id}}/{{class.id}}/" class="nav-link">Attendance</a></li>
+                  <li><a href="#" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/tmarks/{{subject.id}}/{{class.id}}/" class="nav-link">Sessional Marks</a></li>
+                  {% if classname %}
+                  <li><a href="/activitypoint/view/{{subject.id}}/{{class.id}}/" class="nav-link">Activity Points</a></li>
+                  {% endif %}
                 </ul>
               </nav>
             </div>
@@ -69,13 +72,13 @@
         </header>
     <div class="container-table100" style="background-image: url('/static/attendance/images/bg5.jpg');">
       <div class="wrap-table100">
-        <h1><legend>Subject: {{subject.subject_name}}</legend></h1>
+        <h1><legend>{{subject.subject_name}}</legend></h1>
         <form action="" method="post">
           {% csrf_token %}
           <table >
             <thead>
               <tr class="table100-head">
-                <th class="col1">Roll NO</th>
+                <th class="col1">Roll No</th>
                 <th class="col1">Name</th>
                 <th class="col1">Status</th>
               </tr>    
@@ -97,7 +100,8 @@
             </tbody>
           </table>
           <br>
-          <input type="submit" class="btn btn-success" value="Submit"></td>
+          <div>
+          <button type="submit" class="btn btn-success" value="Submit" style="margin: 30px auto auto auto; display: block;">Submit</button></div></td>
         </form>
       </div>
     </div>
