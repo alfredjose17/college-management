@@ -98,10 +98,10 @@
          <tr> 
             <td class="col">{{m.student.rollno}}</td>
             <td class="col">{{m.student.first_name}} {{m.student.last_name}}</td>
-            <td class="col"><input type="number"  name="internal1" min="0"  style="text-align: center;" max="100" value="{{m.internal_1}}"></td>
-            <td class="col"><input type="number"  name="internal2" min="0" max="20" style="text-align: center;" value="{{m.internal_2}}"></td>
-            <td class="col"><input type="number"  name="assignment1" min="0" max="5" style="text-align: center;" value="{{m.assignment_1}}"></td>
-            <td class="col"><input type="number" name="assignment2" min="0" max="5" style="text-align: center;" value="{{m.assignment_2}}"></td> 
+            <td class="col"><input type="number"  name="internal1" min="0"  style="display: inherit;" max="20" value="{{m.internal_1}}"></td>
+            <td class="col"><input type="number"  name="internal2" min="0" max="20" style="display: inherit;" value="{{m.internal_2}}"></td>
+            <td class="col"><input type="number"  name="assignment1" min="0" max="5" style="display: inherit;" value="{{m.assignment_1}}"></td>
+            <td class="col"><input type="number" name="assignment2" min="0" max="5" style="display: inherit;" value="{{m.assignment_2}}"></td> 
             <td class="col">{{m.total}}</td>
             <input  type="hidden" name ="studentid" value="{{m.student.id}}">
          </tr>

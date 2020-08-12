@@ -3,6 +3,7 @@ from .models import Internal,Mark,TeacherAssignment,StudentAssignment
 from apps.authentication.models import User,Classroom,Subject
 from django.http import HttpResponseRedirect,HttpResponse
 from .forms import TassignmentForm, SassignmentForm
+from datetime import datetime
 # Create your views here.
 #teacher classes
 def tclass(request):
@@ -55,7 +56,7 @@ def tassignment(request,subid,clasid):
             post.subject= sub
             post.class_room =clas
             post.save()
-            return  HttpResponseRedirect('')
+            return  redirect('marks_enter',subid=subid,clasid=clasid)
     else:
             form= TassignmentForm()
             context={
@@ -77,7 +78,9 @@ def studassignsubmit(request,aid):
         if form.is_valid():
             post=form.save(commit=False)
             post.status="Submitted"
+            post.submitted_date=datetime.now()
             post.save()
+            return redirect('studassignment_view')
 
     else:
        

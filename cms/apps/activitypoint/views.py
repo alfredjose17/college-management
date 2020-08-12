@@ -39,22 +39,12 @@ def update_points(request,pk,subid,clasid):
         if request.POST['points']=="":
             status=request.POST['status']
             updation=Activitypoint.objects.filter(id=pk).update(status=status)
-            context={
-                'pk': Activitypoint.objects.get(id = pk),
-                'class':Classroom.objects.get(id=clasid),
-                'subject':Subject.objects.get(id=subid),
-                }
-            return render(request,'activitypoint/view.html',context)
+            return redirect('view',subid=subid,clasid=clasid)
         else:
             points=request.POST['points']
             status=request.POST['status']
             updation=Activitypoint.objects.filter(id=pk).update(points=points,status=status)
-            context={
-                'pk': Activitypoint.objects.get(id = pk),
-                'class':Classroom.objects.get(id=clasid),
-                'subject':Subject.objects.get(id=subid),
-                }
-            return render(request,'activitypoint/view.html',context)
+            return redirect('view',subid=subid,clasid=clasid)
 def student_home_view(request):
     n=request.user
     c=request.user.class_name

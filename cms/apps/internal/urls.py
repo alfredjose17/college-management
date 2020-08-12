@@ -19,10 +19,10 @@ from . import views
 
 urlpatterns = [
     #path('tclass/',views.tclass),
-    path('tmarks/<int:subid>/<int:clasid>/',views.entermark),
+    path('tmarks/<int:subid>/<int:clasid>/',views.entermark,name="marks_enter"),
     path('sview/',views.viewmarks),
     path('tmarks/<int:subid>/<int:clasid>/ascreate/',views.tassignment),
-    path('sview/assignview/',views.studassignview),
+    path('sview/assignview/',views.studassignview,name="studassignment_view"),
     path('sview/assignview/studassignsub/<int:aid>/',views.studassignsubmit),
     path('tmarks/<int:subid>/<int:clasid>/tassignview/',views.tassignview),
 ]
