@@ -5,8 +5,8 @@
   <title>Govt. Model Engineering College &mdash; Website by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  
+
+
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/fonts/icomoon/style.css' %}">
 
@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
 
   <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-  
-<!--===============================================================================================-->	
+
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static '/attendance/images/icons/favicon.ico'%}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static '/attendance/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -46,7 +46,7 @@
 <body>
   <div class="limiter">
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
+
       <div class="container-fluid">
         <div class="d-flex align-items-center">
           <div class="site-logo mr-auto w-25"><a href="https://www.mec.ac.in/">Model Engineering College</a></div>
@@ -56,7 +56,7 @@
                   <li><a href="/home#home-section" class="nav-link">Home</a></li>
                   <li><a href="#" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/sview/" class="nav-link">Sessional Marks</a></li>
-                  <li><a href="/activitypoint/studenthome" class="nav-link">Activity Points</a></li>  
+                  <li><a href="/activitypoint/studenthome" class="nav-link">Activity Points</a></li>
                 </ul>
               </nav>
             </div>
@@ -64,7 +64,7 @@
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
                     <li><a href="/home#profile" class="nav-link">View Profile</a></li>
-                  <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
+                  <li class="cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
                 </ul>
               </nav>
             </div>
@@ -74,7 +74,7 @@
 
     <div class="container-table100" style="background-image: url('/static/attendance/images/bg5.jpg');">
       <div class="wrap-table100">
-        <h1><legend>Attendance</legend></h1>     
+        <h1><legend>Attendance</legend></h1>
       <div class="table100">
     <table>
     <thead>
@@ -86,7 +86,7 @@
             <th class="col">Percentage</th>
         </tr>
     </thead>
-   
+
     {% for a in attendance %}
     <tbody>
       <tr>
@@ -99,7 +99,7 @@
     </tbody>
     {% endfor %}
   </table>
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
   <script src="{% static '/internal/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
 <!--===============================================================================================-->
 	<script src="{% static '/internal/vendor/bootstrap/js/popper.js'%}"></script>
@@ -108,7 +108,7 @@
 	<script src="{% static '/internal/vendor/select2/select2.min.js'%}"></script>
 <!--===============================================================================================-->
   <script src="{% static 'internal/js/main.js'%}"></script>
-  
+
   <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'home/js/jquery-migrate-3.0.1.min.js' %}"></script>
   <script src="{% static 'home/js/jquery-ui.js' %}"></script>
@@ -123,6 +123,6 @@
   <script src="{% static 'home/js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'home/js/jquery.sticky.js' %}"></script>
 
-  
+
   <script src="{% static 'home/js/main.js' %}"></script>
 </body>

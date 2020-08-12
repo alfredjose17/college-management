@@ -1,13 +1,15 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from apps.internal.models import Internal
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
-    
+@login_required(login_url="/accounts/login/")
 def home(request):
     if request.user.type == 'teacher':
         if request.method == "POST":
-            name = request.POST["class"] 
+            name = request.POST["class"]
             classx = get_object_or_404(Internal, teacher = request.user, class_room__name = name)
             context = {
                 'classes' : Internal.objects.filter(teacher = request.user),
@@ -43,7 +45,7 @@ def home(request):
         }
 
     return render(request, 'home/index.html', context)
-    
 
+@login_required(login_url="/accounts/login/")
 def student_profile(request):
     return render(request, 'home/profile.html', {})

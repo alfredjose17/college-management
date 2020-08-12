@@ -5,8 +5,8 @@
     <title>Govt. Model Engineering College &mdash; Website by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'home/fonts/icomoon/style.css' %}">
 
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static '/activitypoint/images/icons/favicon.ico'%}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -63,7 +63,7 @@
             <div class="ml-auto w-25">
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                  <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
+                  <li class="cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
                 </ul>
               </nav>
             </div>
@@ -75,7 +75,7 @@
       <h1 style="color: white;"><legend>Activity Points of Class {{class}}</legend></h1>
         <p id="pdf" style="text-align: center;"><a href="http://www.bmce.ac.in/pdf/B.TechActivityPoints.pdf" target="_blank">PDF for Activity Points</a></p>
       <br>
-    
+
       <div class="table100">
         <table>
           <thead>
@@ -125,7 +125,7 @@
 		</div>
 	</div>
 
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 <script src="{% static '/activitypoint/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
 <!--===============================================================================================-->
 	<script src="{% static '/activitypoint/vendor/bootstrap/js/popper.js'%}"></script>
@@ -148,8 +148,8 @@
 	<script src="{% static 'home/js/aos.js' %}"></script>
 	<script src="{% static 'home/js/jquery.fancybox.min.js' %}"></script>
 	<script src="{% static 'home/js/jquery.sticky.js' %}"></script>
-  
-	
+
+
 	<script src="{% static 'home/js/main.js' %}"></script>
 
 </body>

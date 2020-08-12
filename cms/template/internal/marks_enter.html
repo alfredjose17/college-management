@@ -5,8 +5,8 @@
   <title>Govt. Model Engineering College &mdash; Website by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  
+
+
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/fonts/icomoon/style.css' %}">
 
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
 
   <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static '/internal/images/icons/favicon.ico'%}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static '/internal/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -45,7 +45,7 @@
 <body>
   <div class="limiter">
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
+
       <div class="container-fluid">
         <div class="d-flex align-items-center">
           <div class="site-logo mr-auto w-25"><a href="https://www.mec.ac.in/">Model Engineering College</a></div>
@@ -64,7 +64,7 @@
             <div class="ml-auto w-25">
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                  <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
+                  <li class="cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
                 </ul>
               </nav>
             </div>
@@ -89,19 +89,19 @@
             <th class="col">Assignment 1</th>
             <th class="col">Assignment 2</th>
             <th class="col">Total</th>
-      </tr>    
+      </tr>
     </thead>
     <tbody>
 
     {% for m in mark %}
-      
-         <tr> 
+
+         <tr>
             <td class="col">{{m.student.rollno}}</td>
             <td class="col">{{m.student.first_name}} {{m.student.last_name}}</td>
             <td class="col"><input type="number"  name="internal1" min="0"  style="display: inherit;" max="20" value="{{m.internal_1}}"></td>
             <td class="col"><input type="number"  name="internal2" min="0" max="20" style="display: inherit;" value="{{m.internal_2}}"></td>
             <td class="col"><input type="number"  name="assignment1" min="0" max="5" style="display: inherit;" value="{{m.assignment_1}}"></td>
-            <td class="col"><input type="number" name="assignment2" min="0" max="5" style="display: inherit;" value="{{m.assignment_2}}"></td> 
+            <td class="col"><input type="number" name="assignment2" min="0" max="5" style="display: inherit;" value="{{m.assignment_2}}"></td>
             <td class="col">{{m.total}}</td>
             <input  type="hidden" name ="studentid" value="{{m.student.id}}">
          </tr>
@@ -116,7 +116,7 @@
 </div>
 </div>
 </div>
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 <script src="{% static '/internal/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
 <!--===============================================================================================-->
 	<script src="{% static '/internal/vendor/bootstrap/js/popper.js'%}"></script>
@@ -140,7 +140,7 @@
   <script src="{% static 'home/js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'home/js/jquery.sticky.js' %}"></script>
 
-  
+
   <script src="{% static 'home/js/main.js' %}"></script>
   </body>
   </html>

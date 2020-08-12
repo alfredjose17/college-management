@@ -5,8 +5,8 @@
     <title>Govt. Model Engineering College &mdash; Website by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'home/fonts/icomoon/style.css' %}">
 
@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -39,10 +39,10 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
-    
+
+
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
+
       <div class="container-fluid">
         <div class="d-flex align-items-center">
           <div class="site-logo mr-auto w-25"><a href="https://www.mec.ac.in/">Model Engineering College</a></div>
@@ -67,7 +67,7 @@
                   <li><a href="/attendance/sattendance/" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/sview/" class="nav-link">Sessional Marks</a></li>
                   <li><a href="/activitypoint/studenthome/" class="nav-link">Activity Points</a></li>
-                  
+
                 </ul>
               </nav>
             </div>
@@ -87,22 +87,22 @@
                         {% endfor %}
                       </form>
                     </div>
-                  </div> 
+                  </div>
                 {% else %}
                   <li><a href="#profile" class="nav-link">View Profile</a></li>
                 {% endif %}
-                <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
+                <li class="cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
               </ul>
             </nav>
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
           </div>
         </div>
       </div>
-      
+
     </header>
 
     <div class="intro-section" id="home-section">
-      
+
       <div class="slide-1" style="background-image: url('/static/home/images/bg.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center">
@@ -111,9 +111,9 @@
                 <div class="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
                   <div class="container" style="margin-top: 320px;">
                     <div class="row">
-            
+
                       <div class="owl-carousel col-12 nonloop-block-14">
-            
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_1.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -128,7 +128,7 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -143,7 +143,7 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_3.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -158,9 +158,9 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
-            
-            
+
+
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_1.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -175,7 +175,7 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -190,7 +190,7 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
+
                         <div class="course bg-white h-100 align-self-stretch">
                           <figure class="m-0">
                             <a href="#"><img src="{% static 'home/images/img_3.jpg' %}" alt="Image" class="img-fluid"></a>
@@ -205,11 +205,11 @@
                             <div class="py-3 px-4 w-25 ml-auto border-left"><span class="icon-chat"></span> 2</div>
                           </div>
                         </div>
-            
+
                       </div>
-            
-                     
-            
+
+
+
                     </div>
                     <div class="row justify-content-center">
                       <div class="col-7 text-center">
@@ -221,15 +221,15 @@
                     </div>
                   </div>
                 </div>
-            
+
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
     </div>
-  
+
     <div class="site-section" id="profile">
       <div class="container">
         <div class="row mb-5 justify-content-center">
@@ -271,8 +271,8 @@
   <script src="{% static 'home/js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'home/js/jquery.sticky.js' %}"></script>
 
-  
+
   <script src="{% static 'home/js/main.js' %}"></script>
-    
+
   </body>
 </html>

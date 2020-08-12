@@ -2,13 +2,16 @@ from django.shortcuts import render ,redirect
 from .models import Attendance
 from apps.authentication.models import User,Classroom,Subject
 from django.http import HttpResponseRedirect,HttpResponse
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required(login_url="/accounts/login/")
 def enterattendance(request,subid,clasid):
-    if request.method=="GET":        
+    if request.method=="GET":
         attendance= Attendance.objects.filter(subject__id=subid,student__class_name=clasid)
         context={
             'attendance': attendance,
-            'subject': Subject.objects.get(id=subid), 
+            'subject': Subject.objects.get(id=subid),
             'class':Classroom.objects.get(id=clasid),
             'classname' : request.user.class_name,
         }
@@ -28,13 +31,14 @@ def enterattendance(request,subid,clasid):
             total = (pcount/tcount)*100
             a.presentcount = pcount
             a.totcount = tcount
-            a.total = total            
+            a.total = total
             a.save()
         return HttpResponseRedirect('')
 #student view attendance
+@login_required(login_url="/accounts/login/")
 def viewattendance(request):
     context={
         'attendance':Attendance.objects.filter(student__rollno=request.user.rollno),
         'student':User.objects.get(rollno=request.user.rollno)
-    }    
+    }
     return render(request,'attendance/attendance_view.html',context)

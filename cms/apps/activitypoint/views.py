@@ -5,10 +5,11 @@ from django.shortcuts import render,redirect
 from .forms import ActivityForm
 from .models import Activitypoint
 from apps.authentication.models import User,Classroom,Subject
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required(login_url="/accounts/login/")
 def student_activity_view(request):
-    if request.method=='POST':   
+    if request.method=='POST':
         form=ActivityForm(request.POST or None,request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
@@ -21,6 +22,7 @@ def student_activity_view(request):
         'form':form
     }
     return render(request,'activitypoint/home.html',context)
+@login_required(login_url="/accounts/login/")
 def activity_list_view(request,subid,clasid):
     c=request.user.class_name
     n=request.user
@@ -34,6 +36,8 @@ def activity_list_view(request,subid,clasid):
         'classname' : request.user.class_name,
     }
     return render(request,'activitypoint/view.html',context)
+
+@login_required(login_url="/accounts/login/")
 def update_points(request,pk,subid,clasid):
     if request.method=="POST":
         if request.POST['points']=="":
@@ -45,10 +49,11 @@ def update_points(request,pk,subid,clasid):
             status=request.POST['status']
             updation=Activitypoint.objects.filter(id=pk).update(points=points,status=status)
             return redirect('view',subid=subid,clasid=clasid)
+@login_required(login_url="/accounts/login/")
 def student_home_view(request):
     n=request.user
     c=request.user.class_name
-    queryset=Activitypoint.objects.filter(student=request.user)    
+    queryset=Activitypoint.objects.filter(student=request.user)
     context={
         'object':queryset,
         'name':n,

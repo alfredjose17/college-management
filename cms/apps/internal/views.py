@@ -4,8 +4,10 @@ from apps.authentication.models import User,Classroom,Subject
 from django.http import HttpResponseRedirect,HttpResponse
 from .forms import TassignmentForm, SassignmentForm
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 #teacher classes
+@login_required(login_url="/accounts/login/")
 def tclass(request):
     classes= Internal.objects.filter(teacher__first_name='Ajith')
     return render(request,'internal/teacher_class.html',{'tclass':classes})
@@ -37,15 +39,17 @@ def entermark(request,subid,clasid):
             m.total= total
             m.save()
         return HttpResponseRedirect('')
-#student view marks          
+#student view marks
+@login_required(login_url="/accounts/login/")
 def viewmarks(request):
     context={
         'mark':Mark.objects.filter(student=request.user),
         'student':User.objects.get(rollno=request.user.rollno)
-    }    
+    }
     return render(request,'internal/marks_view.html',context)
-  
+
 #teacher assignment
+@login_required(login_url="/accounts/login/")
 def tassignment(request,subid,clasid):
     sub= Subject.objects.get(id=subid)
     clas= Classroom.objects.get(id=clasid)
@@ -62,14 +66,15 @@ def tassignment(request,subid,clasid):
             context={
                 'form':form
             }
-    return render(request,'internal/teacherassignment.html',context)                                               
+    return render(request,'internal/teacherassignment.html',context)
 #student assignment list view
+@login_required(login_url="/accounts/login/")
 def studassignview(request):
    context={
         'studassignment': StudentAssignment.objects.filter(student__rollno=request.user.rollno),
-   }   
+   }
    return render(request,'internal/studassignment_view.html',context)
-  
+
 
 def studassignsubmit(request,aid):
     studassignment =StudentAssignment.objects.get(id=aid)
@@ -83,14 +88,14 @@ def studassignsubmit(request,aid):
             return redirect('studassignment_view')
 
     else:
-       
+
         form= SassignmentForm()
     context={
         'form':form,
         'studas': studassignment
-     }       
+     }
     return render(request,'internal/assignmentsubmit.html',context)
-     
+@login_required(login_url="/accounts/login/")
 def tassignview(request,subid,clasid):
     studassignment= StudentAssignment.objects.filter(assignment__subject=subid,assignment__class_room=clasid,status="Submitted")
     context ={

@@ -5,8 +5,8 @@
   <title>Govt. Model Engineering College &mdash; Website by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  
+
+
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/fonts/icomoon/style.css' %}">
 
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
 
   <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static '/activitypoint/images/icons/favicon.ico'%}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static '/activitypoint/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -45,9 +45,9 @@
 
 <body>
   <div class="limiter">
-    
+
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-      
+
       <div class="container-fluid">
         <div class="d-flex align-items-center">
           <div class="site-logo mr-auto w-25"><a href="https://www.mec.ac.in/">Model Engineering College</a></div>
@@ -57,7 +57,7 @@
                   <li><a href="/home#home-section" class="nav-link">Home</a></li>
                   <li><a href="/attendance/sattendance/" class="nav-link">Attendance</a></li>
                   <li><a href="/internal/sview/" class="nav-link">Sessional Marks</a></li>
-                  <li><a href="#" class="nav-link">Activity Points</a></li>  
+                  <li><a href="#" class="nav-link">Activity Points</a></li>
                 </ul>
               </nav>
             </div>
@@ -65,7 +65,7 @@
               <nav class="site-navigation position-relative text-right" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
                     <li><a href="/home#profile" class="nav-link">View Profile</a></li>
-                  <li class="cta"><a href="/" class="nav-link"><span>Logout</span></a></li>
+                  <li class="cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
                 </ul>
               </nav>
             </div>
@@ -77,7 +77,7 @@
         <h1 style="color: white;"><legend>KTU ACTIVITY POINTS</legend></h1>
         <p id="atag" style="margin-bottom: 30px;"><a href="{% url 'home' %}">Claim Activity Points</a></p>
         <div class="table100">
-   
+
           <table>
             <thead>
               <tr class="table100-head">
@@ -101,7 +101,7 @@
     <td  class="col">
         <form method="POST" action="{% url 'deletepoints' instance.id %}">
             {%csrf_token%}
-          <button type="submit">Delete</button>  
+          <button type="submit">Delete</button>
         </form>
     </td>
   </tr>
@@ -112,7 +112,7 @@
 </div>
 </div>
 </div>
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 <script src="{% static '/activitypoint/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
 <!--===============================================================================================-->
 	<script src="{% static '/activitypoint/vendor/bootstrap/js/popper.js'%}"></script>
@@ -121,7 +121,7 @@
 	<script src="{% static '/activitypoint/vendor/select2/select2.min.js'%}"></script>
 <!--===============================================================================================-->
   <script src="{% static '/activitypoint/js/main.js'%}"></script>
-  
+
   <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'home/js/jquery-migrate-3.0.1.min.js' %}"></script>
   <script src="{% static 'home/js/jquery-ui.js' %}"></script>
