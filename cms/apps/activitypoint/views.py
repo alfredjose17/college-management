@@ -34,17 +34,27 @@ def activity_list_view(request,subid,clasid):
         'classname' : request.user.class_name,
     }
     return render(request,'activitypoint/view.html',context)
-def update_points(request,pk):
+def update_points(request,pk,subid,clasid):
     if request.method=="POST":
         if request.POST['points']=="":
             status=request.POST['status']
             updation=Activitypoint.objects.filter(id=pk).update(status=status)
-            return redirect('view')
+            context={
+                'pk': Activitypoint.objects.get(id = pk),
+                'class':Classroom.objects.get(id=clasid),
+                'subject':Subject.objects.get(id=subid),
+                }
+            return render(request,'activitypoint/view.html',context)
         else:
             points=request.POST['points']
             status=request.POST['status']
             updation=Activitypoint.objects.filter(id=pk).update(points=points,status=status)
-            return redirect('view')
+            context={
+                'pk': Activitypoint.objects.get(id = pk),
+                'class':Classroom.objects.get(id=clasid),
+                'subject':Subject.objects.get(id=subid),
+                }
+            return render(request,'activitypoint/view.html',context)
 def student_home_view(request):
     n=request.user
     c=request.user.class_name

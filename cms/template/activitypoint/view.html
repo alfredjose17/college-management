@@ -106,7 +106,7 @@
 <td class="col" style="cursor: default;">{{instance.get_year_display}}</td>
 <td class="col" style="cursor: default;">{{instance.notes}}</td>
 <td class="col" style="cursor: default;">{{instance.date}}</td>
-<form action="{% url 'update_points' instance.id %}" method="POST">{%csrf_token%}
+<form action="{% url 'update_points' instance.id subject.id class.id%}" method="POST">{%csrf_token%}
 <td class="col"><input type="number" name="points"></td>
 <td class="col"><select name="status">
     <option value="approved">APPROVE</option>
