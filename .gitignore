@@ -1,0 +1,6 @@
+cenv
+*.pyc
+.vscode
+migrations
+media
+uploads
