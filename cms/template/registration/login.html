@@ -38,7 +38,7 @@ a:hover {
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <p><b><h3 style="color:White;">Model Engineering COllege</h3></b></p>
+        <p><b><h3 style="color:White;">Model Engineering College</h3></b></p>
       </li>
     </ul>
   </nav>
@@ -53,7 +53,7 @@ a:hover {
                   action="{% url 'login' %}">
            {% csrf_token %}
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" id="id_username" name="username" placeholder="User name">
+						<input class="input100" type="text" id="id_username" name="username" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -73,13 +73,14 @@ a:hover {
 
           {% endif %}
 -->
+					<br>
 					<div class="container-login100-form-btn m-t-32">
 						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
           <input type="hidden" name="next" value="{{ next }}" />
-					<div class="login100-form-title m-t-32">
+					<div class="login100-form-title m-t-32" style="margin-top: auto;">
 						<a href="{% url 'password_reset' %}">Forgot Password?</a>
 					</div>
 
